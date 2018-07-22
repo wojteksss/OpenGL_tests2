@@ -7,10 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5026E54210341A2000DC447 /* resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5026E5221034160000DC447 /* resources */; };
+		F5026E5B2103E827000DC447 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E592103E827000DC447 /* Renderer.cpp */; };
+		F5026E5E2103F39F000DC447 /* VertexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E5C2103F39F000DC447 /* VertexBuffer.cpp */; };
+		F5026E612103F6AE000DC447 /* IndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E5F2103F6AE000DC447 /* IndexBuffer.cpp */; };
+		F5026E6421047791000DC447 /* VertexArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E6221047791000DC447 /* VertexArray.cpp */; };
+		F5026E6A2104D92A000DC447 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E682104D92A000DC447 /* Shader.cpp */; };
+		F5026E7021051839000DC447 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E6E21051839000DC447 /* stb_image.cpp */; };
+		F5026E73210518D5000DC447 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5026E71210518D5000DC447 /* Texture.cpp */; };
 		F5C02FD5210268D3002CDEB4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5C02FD4210268D3002CDEB4 /* main.cpp */; };
+		F5C02FDD210269AC002CDEB4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C02FDC210269AC002CDEB4 /* OpenGL.framework */; };
+		F5C02FE1210269CE002CDEB4 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C02FE0210269CE002CDEB4 /* libGLEW.2.1.0.dylib */; };
+		F5C02FE3210269DF002CDEB4 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C02FE2210269DF002CDEB4 /* libglfw.3.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		F5026E532103419A000DC447 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				F5026E54210341A2000DC447 /* resources in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5C02FCF210268D3002CDEB4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,8 +44,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F5026E5221034160000DC447 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
+		F5026E592103E827000DC447 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		F5026E5A2103E827000DC447 /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		F5026E5C2103F39F000DC447 /* VertexBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexBuffer.cpp; sourceTree = "<group>"; };
+		F5026E5D2103F39F000DC447 /* VertexBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexBuffer.h; sourceTree = "<group>"; };
+		F5026E5F2103F6AE000DC447 /* IndexBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexBuffer.cpp; sourceTree = "<group>"; };
+		F5026E602103F6AE000DC447 /* IndexBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexBuffer.h; sourceTree = "<group>"; };
+		F5026E6221047791000DC447 /* VertexArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VertexArray.cpp; sourceTree = "<group>"; };
+		F5026E6321047791000DC447 /* VertexArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexArray.h; sourceTree = "<group>"; };
+		F5026E662104793C000DC447 /* VertexBufferLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexBufferLayout.h; sourceTree = "<group>"; };
+		F5026E682104D92A000DC447 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		F5026E692104D92A000DC447 /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		F5026E6E21051839000DC447 /* stb_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
+		F5026E6F21051839000DC447 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		F5026E71210518D5000DC447 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		F5026E72210518D5000DC447 /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		F5C02FD1210268D3002CDEB4 /* OpenGL_tests2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_tests2; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C02FD4210268D3002CDEB4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F5C02FDC210269AC002CDEB4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		F5C02FDE210269BB002CDEB4 /* glfw */ = {isa = PBXFileReference; lastKnownFileType = folder; name = glfw; path = ../../../../../usr/local/Cellar/glfw; sourceTree = "<group>"; };
+		F5C02FE0210269CE002CDEB4 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		F5C02FE2210269DF002CDEB4 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +73,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C02FE3210269DF002CDEB4 /* libglfw.3.2.dylib in Frameworks */,
+				F5C02FE1210269CE002CDEB4 /* libGLEW.2.1.0.dylib in Frameworks */,
+				F5C02FDD210269AC002CDEB4 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5026E6C210517FE000DC447 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				F5026E6D21051809000DC447 /* stb_image */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		F5026E6D21051809000DC447 /* stb_image */ = {
+			isa = PBXGroup;
+			children = (
+				F5026E6E21051839000DC447 /* stb_image.cpp */,
+				F5026E6F21051839000DC447 /* stb_image.h */,
+			);
+			path = stb_image;
+			sourceTree = "<group>";
+		};
 		F5C02FC8210268D3002CDEB4 = {
 			isa = PBXGroup;
 			children = (
 				F5C02FD3210268D3002CDEB4 /* OpenGL_tests2 */,
 				F5C02FD2210268D3002CDEB4 /* Products */,
+				F5C02FDB210269AC002CDEB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +119,35 @@
 		F5C02FD3210268D3002CDEB4 /* OpenGL_tests2 */ = {
 			isa = PBXGroup;
 			children = (
+				F5026E6C210517FE000DC447 /* vendor */,
+				F5026E5221034160000DC447 /* resources */,
 				F5C02FD4210268D3002CDEB4 /* main.cpp */,
+				F5026E592103E827000DC447 /* Renderer.cpp */,
+				F5026E5A2103E827000DC447 /* Renderer.h */,
+				F5026E5C2103F39F000DC447 /* VertexBuffer.cpp */,
+				F5026E5D2103F39F000DC447 /* VertexBuffer.h */,
+				F5026E5F2103F6AE000DC447 /* IndexBuffer.cpp */,
+				F5026E602103F6AE000DC447 /* IndexBuffer.h */,
+				F5026E6221047791000DC447 /* VertexArray.cpp */,
+				F5026E6321047791000DC447 /* VertexArray.h */,
+				F5026E662104793C000DC447 /* VertexBufferLayout.h */,
+				F5026E682104D92A000DC447 /* Shader.cpp */,
+				F5026E692104D92A000DC447 /* Shader.h */,
+				F5026E71210518D5000DC447 /* Texture.cpp */,
+				F5026E72210518D5000DC447 /* Texture.h */,
 			);
 			path = OpenGL_tests2;
+			sourceTree = "<group>";
+		};
+		F5C02FDB210269AC002CDEB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5C02FE2210269DF002CDEB4 /* libglfw.3.2.dylib */,
+				F5C02FE0210269CE002CDEB4 /* libGLEW.2.1.0.dylib */,
+				F5C02FDE210269BB002CDEB4 /* glfw */,
+				F5C02FDC210269AC002CDEB4 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +160,7 @@
 				F5C02FCD210268D3002CDEB4 /* Sources */,
 				F5C02FCE210268D3002CDEB4 /* Frameworks */,
 				F5C02FCF210268D3002CDEB4 /* CopyFiles */,
+				F5026E532103419A000DC447 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -118,7 +207,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5026E5B2103E827000DC447 /* Renderer.cpp in Sources */,
 				F5C02FD5210268D3002CDEB4 /* main.cpp in Sources */,
+				F5026E7021051839000DC447 /* stb_image.cpp in Sources */,
+				F5026E612103F6AE000DC447 /* IndexBuffer.cpp in Sources */,
+				F5026E6421047791000DC447 /* VertexArray.cpp in Sources */,
+				F5026E73210518D5000DC447 /* Texture.cpp in Sources */,
+				F5026E6A2104D92A000DC447 /* Shader.cpp in Sources */,
+				F5026E5E2103F39F000DC447 /* VertexBuffer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +334,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -246,6 +348,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
