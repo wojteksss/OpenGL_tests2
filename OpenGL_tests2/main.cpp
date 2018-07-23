@@ -15,6 +15,9 @@
 #include "Shader.h"
 #include "Texture.h"
 
+#include "vendor/glm/glm.hpp"
+#include "vendor/glm/gtc/matrix_transform.hpp"
+
 const GLint WIDTH = 800, HEIGHT = 600;
 void printGL_Version();
 
@@ -75,8 +78,8 @@ int main(void)
         2, 3, 0
     };
     
-//    GLCall(glEnable(GL_BLEND));
-//    GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+    GLCall(glEnable(GL_BLEND));
+    GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
     
     VertexArray va;
     VertexBuffer vb(positions, 4*4*sizeof(float));
@@ -115,9 +118,10 @@ int main(void)
 
         renderer.Clear();
         shader.Bind();
+        
         shader.setUniform4f("u_Color", red, 0.2f, 0.2f, 0.9f);
         renderer.Draw(va, ib, shader);
-        
+
         if(red > 1.0f)
             increment = -0.03f;
         else if(red < 0.0f)
