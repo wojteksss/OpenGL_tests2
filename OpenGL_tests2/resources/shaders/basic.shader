@@ -3,13 +3,13 @@
 layout ( location = 0) in vec4 position;
 layout ( location = 1) in vec2 texCoord;
 
-//uniform vec2 u_position;
 out vec2 v_TexCoord;
+uniform mat4 u_MVP;
 
 void main()
 {
     //gl_Position = u_position;
-    gl_Position = position;
+    gl_Position = u_MVP * position;
     v_TexCoord = texCoord;
 }
 
@@ -28,5 +28,6 @@ void main()
 {
     vec4 texColor = texture(u_Texture, v_TexCoord);
     color = texColor;
+    color = vec4(0.5f);
     //color = u_Color;
 }

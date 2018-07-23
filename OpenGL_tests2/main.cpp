@@ -18,10 +18,12 @@
 #include "vendor/glm/glm.hpp"
 #include "vendor/glm/gtc/matrix_transform.hpp"
 
+
+
+
 const GLint WIDTH = 800, HEIGHT = 600;
 void printGL_Version();
-
-
+const float fWIDTH = WIDTH, fHEIGHT = 600;
 
 
 
@@ -60,16 +62,15 @@ int main(void)
     
     GLCall(glViewport(0, 0, screenWidth, screenHeight));
     
-//    xShader ourShader( "resources/shaders/basic.shader" );
     
     
     GLfloat positions[] =
     {
         //position
-        -0.5f, -0.5f,    0.0f, 0.0f,
-         0.5f, -0.5f,    1.0f, 0.0f,
-         0.5f,  0.5f,    1.0f, 1.0f,
-        -0.5f,  0.5f,    0.0f, 1.0f
+         100.0f,  100.0f,    0.0f, 0.0f,
+         200.0f,  100.0f,    1.0f, 0.0f,
+         200.0f,  200.0f,    1.0f, 1.0f,
+         100.0f,  200.0f,    0.0f, 1.0f
     };
     
     unsigned int indices[] =
@@ -90,10 +91,17 @@ int main(void)
     va.AddBuffer(vb, layout);
     
     IndexBuffer ib(indices, 6);
+    
+    glm::mat4 proj = glm::ortho(0.0f, fWIDTH, 0.0f, fHEIGHT, -1.0f, 1.0f);
+    glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
+    
+    glm::mat4 mvp = proj * view * model;
 
     Shader shader("resources/shaders/basic.shader");
     shader.Bind();
     shader.setUniform4f("u_Color", 0.9f, 0.2f, 0.2f, 0.9f);
+    shader.setUniformMat4f("u_MVP", mvp);
     
     Texture texture("resources/textures/examplePicture.png");
     texture.Bind();
@@ -105,9 +113,15 @@ int main(void)
     shader.Unbind();
     
     Renderer renderer;
+    
+//    ImGui::CreateContext();
+//    ImGui_ImplGlfwGL3_Init(window, true);
+//    ImGui::StyleColorsDark();
 
-    float red = 0.0f;
-    float increment = 0.03f;
+    
+//    bool show_demo_window = true;
+//    bool show_another_window = false;
+//    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     
     while (!glfwWindowShouldClose(window))
     {
@@ -117,31 +131,41 @@ int main(void)
         
 
         renderer.Clear();
+        
+//        ImGui_ImplGlfwGL3_NewFrame();
+        
         shader.Bind();
         
-        shader.setUniform4f("u_Color", red, 0.2f, 0.2f, 0.9f);
         renderer.Draw(va, ib, shader);
-
-        if(red > 1.0f)
-            increment = -0.03f;
-        else if(red < 0.0f)
-            increment = 0.03f;
         
-        red += increment;
         
+//        {
+//            static float f = 0.0f;
+//            static int counter = 0;
+//            ImGui::Text("Hello, world!");                           // Display some text (you can use a format string too)
+//            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+//            ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+//            
+//            ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our windows open/close state
+//            ImGui::Checkbox("Another Window", &show_another_window);
+//            
+//            if (ImGui::Button("Button"))                            // Buttons return true when clicked (NB: most widgets return true when edited/activated)
+//                counter++;
+//            ImGui::SameLine();
+//            ImGui::Text("counter = %d", counter);
+//            
+//            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+//        }
+        
+        
+//        ImGui::Render();
+//        ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
         
         glfwSwapBuffers(window);
-        
-        
-        // DELAY
-//        float ggg = (float)(zzz%10) * 1.0f/10.0f;
-//        GLCall(glUniform4f(location, ggg, 0.2f, 0.2f, 0.9f));
-//        std::this_thread::sleep_for(0.02s);
-//        zzz++;
-////        std::cout << positions[3] << std::endl;
-//        if(zzz>100) zzz=0;
     }
     
+//    ImGui_ImplGlfwGL3_Shutdown();
+//    ImGui::DestroyContext();
     glfwTerminate();
     return 0;
 }
