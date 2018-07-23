@@ -61,6 +61,7 @@
 		F5026E71210518D5000DC447 /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		F5026E72210518D5000DC447 /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		F5026E74210639EE000DC447 /* glm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = glm; sourceTree = "<group>"; };
+		F58A10F72106948F000687E6 /* imgui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = imgui; sourceTree = "<group>"; };
 		F5C02FD1210268D3002CDEB4 /* OpenGL_tests2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL_tests2; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C02FD4210268D3002CDEB4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F5C02FDC210269AC002CDEB4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -86,6 +87,7 @@
 		F5026E6C210517FE000DC447 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				F58A10F72106948F000687E6 /* imgui */,
 				F5026E74210639EE000DC447 /* glm */,
 				F5026E6D21051809000DC447 /* stb_image */,
 			);
