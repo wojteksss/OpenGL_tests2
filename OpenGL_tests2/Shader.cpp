@@ -10,6 +10,7 @@ Shader::Shader(const std::string& filePath)
 {
     ShaderProgramSource source = ParseShader(filePath);
     m_RendererID = CreateShader(source.VertexSource, source.FragmentSource);
+    std::cout <<  "dupka" << std::endl;
 }
 
 Shader::~Shader()
