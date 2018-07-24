@@ -17,8 +17,8 @@
 
 #include "vendor/glm/glm.hpp"
 #include "vendor/glm/gtc/matrix_transform.hpp"
-//#include "vendor/imgui/im"
-
+#include "vendor/imgui/imgui.h"
+#include "vendor/imgui/imgui_impl_glfw_gl3.h"
 
 
 const GLint WIDTH = 800, HEIGHT = 600;
@@ -94,14 +94,10 @@ int main(void)
     
     glm::mat4 proj = glm::ortho(0.0f, fWIDTH, 0.0f, fHEIGHT, -1.0f, 1.0f);
     glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
-    
-    glm::mat4 mvp = proj * view * model;
 
     Shader shader("resources/shaders/basic.shader");
     shader.Bind();
     shader.setUniform4f("u_Color", 0.9f, 0.2f, 0.2f, 0.9f);
-    shader.setUniformMat4f("u_MVP", mvp);
     
     Texture texture("resources/textures/examplePicture.png");
     texture.Bind();
@@ -114,14 +110,16 @@ int main(void)
     
     Renderer renderer;
     
-//    ImGui::CreateContext();
-//    ImGui_ImplGlfwGL3_Init(window, true);
-//    ImGui::StyleColorsDark();
+    ImGui::CreateContext();
+    ImGui_ImplGlfwGL3_Init(window, true);
+    ImGui::StyleColorsDark();
 
+//    float increaseX=5.0f;
+//    float slideX=0.0f;
+//    float increaseY=5.0f;
+//    float slideY=0.0f;
     
-//    bool show_demo_window = true;
-//    bool show_another_window = false;
-//    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    glm::vec3 translation(200, 200, 0);
     
     while (!glfwWindowShouldClose(window))
     {
@@ -132,40 +130,41 @@ int main(void)
 
         renderer.Clear();
         
-//        ImGui_ImplGlfwGL3_NewFrame();
+        ImGui_ImplGlfwGL3_NewFrame();
+        
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+        glm::mat4 mvp = proj * view * model;
         
         shader.Bind();
+        shader.setUniformMat4f("u_MVP", mvp);
         
         renderer.Draw(va, ib, shader);
         
         
-//        {
-//            static float f = 0.0f;
-//            static int counter = 0;
-//            ImGui::Text("Hello, world!");                           // Display some text (you can use a format string too)
-//            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-//            ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-//            
-//            ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our windows open/close state
-//            ImGui::Checkbox("Another Window", &show_another_window);
-//            
-//            if (ImGui::Button("Button"))                            // Buttons return true when clicked (NB: most widgets return true when edited/activated)
-//                counter++;
-//            ImGui::SameLine();
-//            ImGui::Text("counter = %d", counter);
-//            
-//            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-//        }
+        {
+            ImGui::SliderFloat3("Translation", &translation.x, 0.0f, fWIDTH);
+            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        }
         
+//        if(slideX>=fWIDTH-100) increaseX = -15.0f;
+//        if(slideX<=0.0f) increaseX = 5.0f;
+//        if(slideY>=fHEIGHT-200) increaseY = -9.0f;
+//        if(slideY<=0.0f) increaseY = 5.0f;
+//
+//        slideX+=increaseX;
+//        slideY+=increaseY;
+//
+//        translation.x = slideX;
+//        translation.y = slideY;
         
-//        ImGui::Render();
-//        ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+        ImGui::Render();
+        ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
         
         glfwSwapBuffers(window);
     }
     
-//    ImGui_ImplGlfwGL3_Shutdown();
-//    ImGui::DestroyContext();
+    ImGui_ImplGlfwGL3_Shutdown();
+    ImGui::DestroyContext();
     glfwTerminate();
     return 0;
 }
